@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@300;600&family=Source+Sans+Pro:wght@400;900&display=swap');
+
+
+
+* {
+    font-family: 'Source Sans Pro', 'Mitr';
+    font-weight: 300;
+}
+
+strong,
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 600;
+}
+
+a {
+    color: currentColor;
+}
+
+.tabs {
+    position: fixed;
+    bottom: 0;
+    max-width: 500px;
+
+    width: 100%;
+    
+
+    background: rgba( 255, 255, 255, 0.90 );
+
+    backdrop-filter: blur( 4.0px );
+    -webkit-backdrop-filter: blur( 4.0px );
+
+    color: gray;
+
+    transition: margin 700ms;
+    
+}
+
+.tabs-nav {
+    
+    list-style-type: none;
+    margin: 0 0 0 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%
+}
+
+
+.tabs-nav li {
+    padding: 10px 0 5px 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.imios li {
+    padding-bottom: 120px ;
+    transition: padding 300ms;
+}
+
+.tabs-nav-selected {
+    color: #2978B5;
+}
+
+.navdesc {
+    font-size: 14px
+}
+
+.banner {
+    height: 250px;
+    overflow: hidden;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+    
+}
+
+.usernameBox {
+    width: 70%;
+    max-width: 450px;
+    padding: 10px;
+    border: none;
+    background-color: #d4d4d4;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.fullscreen {
+    position: fixed;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin: 0;
+    color: white;
+    background-image: linear-gradient(109.6deg, rgba(255, 174, 0, 1) 11.2%, rgba(255, 0, 0, 1) 100.2%);
+    width: 100%;
+    height: 100vh;
+
+    z-index: 999;
+}
+
+.unsupported {
+    display: none;
+}
+
+.fullscreen h1,
+.fullscreen p {
+    margin: 0 10px 10px 10px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    
+}
+
+hr {
+    margin: 0 25px 25px 25px;
+    border: none;
+    height: 0.5px;
+    color: #c1c1c1;
+    background-color: #c1c1c1;
+}
+
+.contents {
+
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.onlandscape {
+    display: block;
+}
+
+.outbreak {
+    display: none;
+}
+
+.onprint {
+    display: none;
+}
+
+
+@media only screen and (max-width: 500px) {
+    .onlandscape {
+        display: none;
+    }
+}
+
+@media print {
+    .onprint {
+        display: block;
+    }
+    .onlandscape {
+        display: none;
+    }
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%
+}
+
+.pagetitle {
+
+    font-size: 50px;
+    padding: 0 25px 0 25px;
+    margin-bottom: 5px;
+}
+
+.userprofile {
+    display: inline;
+    font-size: 30px;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    color: #2978B5
+}
+
+.profilepic {
+    margin: 0 0 0 30px;
+    color: #2978B5
+}
+
+.countdownbox {
+    text-align: center;
+}
+
+.box {
+    margin: 10px 25px 20px 25px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.box h1,
+.box p {
+    margin: 0;
+}
+
+.bluegradient {
+    background: rgb(0, 34, 112);
+    background: linear-gradient(30deg, rgb(1, 44, 145) 10%, rgba(0, 189, 255, 1) 100%);
+    color: white;
+}
+
+.redgradient {
+    background: #ED213A;
+    background: linear-gradient(to right, #93291E, #ED213A);
+    color: white;
+
+}
+
+.transparentbox {
+    -webkit-box-shadow: 1px 0px 8px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 0px 8px 0px rgba(0, 0, 0, 0.3);
+}
+
+.covidnum {
+    background-color: #810000;
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+h1.covidtotal {
+    display: inline;
+    margin-left: 15px;
+}
+
+@media only screen and (max-width: 275px) {
+    .pagetitle {
+        margin-top: 0;
+    }
+
+    .unsupported {
+        display: flex;
+    }
+
+}
+
+.Height15PX {
+    display:none; 
+}
+
+@media only screen and (max-width: 350px) {
+    .Height15PX {
+        display: block;
+    }
+}
+
+.buttonarrow {
+    margin: 15px 0 0 10px;
+    
+}
+
+.buttonarrow a {
+    color: white;
+}
+
+.buttonarrow a p {
+    display: inline;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.submitButton {
+    display: none;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    margin-left: 10px;
+    position: relative;
+    top: 7px;
+    color: #2978B5
+}
+
+.bottomHeight {
+    height: 50px;
+}
+
+.username-profile {
+    display: inline-block;
+    margin: 0 0 0 15px
+}
+
+.username-profile h1,.username-profile h3 {
+    margin: 0
+}
+
+.title-profile {
+    margin: 0 0 0 30px;
+}
+
+.pendingRequest {
+    width: 100%;
+
+}
+
+.pendingRequestTable {
+    padding: 10px 25px 0 25px;
+}
