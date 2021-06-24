@@ -217,6 +217,15 @@
 
 
         <div class="bottomHeight"></div>
+        <div class="tabs">
+            <hr style="margin: 0.5px 0 0 0">
+            <ul class='tabs-nav '>
+                <li class="tabs-li"><div><i class="fas fa-home"></i><br><span class='navdesc'>Home</span></div></li>
+                <li class="tabs-li"><div><i class="fas fa-tools"></i><br><span class='navdesc'>Tools</span></div></li>
+                <li class="tabs-li tabs-nav-selected"><div><i class="fas fa-user"></i><br><span class='navdesc'>Account</span></div></li>
+            </ul>
+            
+        </div>
     </div>
 
 

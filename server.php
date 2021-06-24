@@ -1,7 +1,7 @@
 <?php 
 
     $servername = "localhost";
-    $username = "surang_tinagritstudy";
+    $username = "root";
     $password = "root";
     $dbname = "surang_tinagritstudy";
 

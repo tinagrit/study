@@ -303,7 +303,7 @@ h1.covidtotal {
 }
 
 .bottomHeight {
-    height: 50px;
+    height: 70px;
 }
 
 .username-profile {
@@ -326,4 +326,62 @@ h1.covidtotal {
 
 .pendingRequestTable {
     padding: 10px 25px 0 25px;
+}
+
+.download {
+    width: 100%;
+    margin: 10px 0 0 0;
+}
+
+.download h2 {
+    margin: 0
+}
+
+.download-button {
+    padding: 10px;
+    width: 80%;
+    border-radius: 10px;
+    text-align: center;
+    display: block;
+    margin: 0 auto 0 auto
+}
+
+.download-button-blue {
+    background-color: #0074DB;
+    color: white;
+    box-shadow: 0 2.5px 7.5px #0074DB;
+}
+
+.download-button-blue:hover {
+    box-shadow: 0 5px 15px #0074DB;
+}
+
+.download-button-green {
+    background-color: #00C206;
+    color: white;
+    box-shadow: 0 2.5px 7.5px #00C206;
+}
+
+.download-button-green:hover {
+    box-shadow: 0 5px 15px #00C206;
+}
+
+.download-button-gray {
+    background-color: #737373;
+    color: white;
+    box-shadow: 0 2.5px 7.5px #737373;
+}
+
+.download-button-gray:hover {
+    box-shadow: 0 5px 15px #737373;
+}
+
+.download-button-red {
+    background-color: #E34B69;
+    color: white;
+    box-shadow: 0 2.5px 7.5px #E34B69;
+}
+
+.download-button-red:hover {
+    box-shadow: 0 5px 15px #E34B69;
 }

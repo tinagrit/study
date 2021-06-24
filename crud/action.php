@@ -141,7 +141,7 @@ session_start();
                 if ($drop_request -> execute()) {
                     $login = $_SESSION["username"];
                     $date = date('Y-m-d H:i:s');
-                    $actions = $requestresult['username'] . ' deleted their own ' . $requestresult['access'] . ' request';
+                    $actions = 'Deleted their own ' . $requestresult['access'] . ' request';
                     $action = $db -> prepare ("INSERT INTO `transactions` (`dates`,`username`,`action`) VALUES (:dates,:logins,:actions)");
                     $action -> bindParam(':dates', $date);
                     $action -> bindParam(':logins', $login);

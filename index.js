@@ -17,3 +17,8 @@ fetch('https://covid19.th-stat.com/json/covid19v2/getTodayCases.json')
 document.querySelector('.userprofile').addEventListener('click',function() {
     window.location.href = "account.php";
 })
+
+document.querySelector('.download-button-blue').addEventListener('click', function() {
+    console.log('clicked!')
+    window.location.href = window.location.href + "&requests=1";
+})

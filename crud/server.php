@@ -1,7 +1,7 @@
 <?php 
 
 $db_host = 'localhost';
-$db_user = 'surang_tinagritstudy';
+$db_user = 'root';
 $db_password = 'root';
 $db_name = 'surang_tinagritstudy';
 
