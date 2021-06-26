@@ -12,7 +12,8 @@
         header('location: ../start.php');
     }
 
-    
+    $restricted = $_SESSION['restricted'];
+    $username = $_SESSION['username'];
 
 ?>
 
@@ -135,7 +136,9 @@
                 <?php if (in_array($row['username'], $restricted)) : ?>
                     <td><a style="visibility: hidden" ><i class="fas fa-user-edit"></i> Edit</a></td>
                     <td><a style="visibility: hidden" ><i class="fas fa-user-slash"></i> Delete</a></td>
-
+                <?php elseif ($row['username'] == $username) : ?>
+                    <td><a href="edit.php?update_user=<?php echo $row['id']; ?>" class='btn btnwarn'><i class="fas fa-user-edit"></i> Edit</a></td>
+                    <td><a style="visibility: hidden" ><i class="fas fa-user-slash"></i> Delete</a></td>
                 <?php else : ?>
                     <td><a href="edit.php?update_user=<?php echo $row['id']; ?>" class='btn btnwarn'><i class="fas fa-user-edit"></i> Edit</a></td>
                     <td><a href="usm.php?delete_user=<?php echo $row['id']; ?>" class='btn btndanger'><i class="fas fa-user-slash"></i> Delete</a></td>

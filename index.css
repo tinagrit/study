@@ -238,6 +238,18 @@ body {
 
 }
 
+.yellowgradient {
+    background: #F2994A;
+    background: linear-gradient(to right, #F2994A, #F2C94C);
+    color: white;
+}
+
+.greengradient {
+    background: #56AB2F;
+    background: linear-gradient(to right, #56AB2F, #A8E063);
+    color: white;
+}
+
 .transparentbox {
     -webkit-box-shadow: 1px 0px 8px 0px rgba(0, 0, 0, 0.3);
     box-shadow: 1px 0px 8px 0px rgba(0, 0, 0, 0.3);
@@ -384,4 +396,9 @@ h1.covidtotal {
 
 .download-button-red:hover {
     box-shadow: 0 5px 15px #E34B69;
+}
+
+.dangerButton {
+    color: red;
+    margin-left: 30px;
 }

@@ -1,6 +1,7 @@
 <?php 
     session_start();
     include('server.php');
+    require_once('crud/server.php');
     
     $errors = array();
     $done = 0;
@@ -22,7 +23,7 @@
 
         if ($result) { // if user exists
             if ($result['username'] === $username) {
-
+                
                 $done = 1;
             }
             $_SESSION['role'] = $result['roles'];
@@ -34,6 +35,14 @@
                 $sql = "INSERT INTO `users` (`id`, `username`, `roles`) VALUES (NULL, '$username', 'User')";
                 mysqli_query($conn, $sql);
                 $_SESSION['role'] = 'User';
+
+                $login = $_SESSION["username"];
+                $date = date('Y-m-d H:i:s');
+                $actions = 'Created their own account';
+                $action = $db -> prepare ("INSERT INTO `transactions` (`dates`,`username`,`action`) VALUES (:dates,:logins,:actions)");
+                $action -> bindParam(':dates', $date);
+                $action -> bindParam(':logins', $login);
+                $action -> bindParam(':actions', $actions);
             }
             
             $_SESSION['username'] = $username;

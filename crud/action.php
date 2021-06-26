@@ -2,6 +2,8 @@
 
 session_start();
     require_once('server.php');
+    $restricted = $_SESSION['restricted'];
+    $username = $_SESSION['username'];
 
     if (isset($_REQUEST['approve'])) {
         try {
@@ -147,7 +149,7 @@ session_start();
                     $action -> bindParam(':logins', $login);
                     $action -> bindParam(':actions', $actions);
                     if ($action -> execute()) {
-                        header('location: ../account.php');
+                        header('location: ../index.php?logout=1');
                     }
                 }
             }
@@ -158,4 +160,39 @@ session_start();
         }
     }
 
+
+
+    if (isset($_REQUEST['deleteuserclient'])) {
+        try {
+            $id = $_SESSION['id'];
+
+            if (!in_array($username,$restricted)) {
+
+    
+                    $drop_request = $db->prepare('DELETE FROM `users` WHERE `id` = :id');
+                    $drop_request->bindParam(':id',$id);
+                    if ($drop_request -> execute()) {
+                        $login = $_SESSION["username"];
+                        $date = date('Y-m-d H:i:s');
+                        $actions = 'Deleted their own account';
+                        $action = $db -> prepare ("INSERT INTO `transactions` (`dates`,`username`,`action`) VALUES (:dates,:logins,:actions)");
+                        $action -> bindParam(':dates', $date);
+                        $action -> bindParam(':logins', $login);
+                        $action -> bindParam(':actions', $actions);
+                        if ($action -> execute()) {
+                            header('location: ../start.php');
+                        }
+                    }
+                
+            } else {
+                header('location: ../account.php');
+            }
+
+            
+
+        } catch(PDOException $e) {
+               $e->getMessage();
+               echo $e;
+        }
+    }
 ?>

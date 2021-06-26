@@ -22,6 +22,7 @@
 
     $id = $row1['id'];
 
+    $_SESSION['id'] = $id;
     $restricted =  $_SESSION['restricted'];
 ?>
 
@@ -211,9 +212,21 @@
             </tbody>
         </table>
 
+        
+
         </div>
+        
+        <div style="height: 20px;"></div>
+        <hr style="margin-bottom: 0;">
+        <p class="dangerButton logoutbutton">ออกจากระบบ</p>
 
-
+        <?php if (in_array($username,$restricted)) : ?>
+        <hr>
+        <?php else : ?>
+        <hr style="margin-bottom: 0;">
+        <p class="dangerButton deletebutton">ลบบัญชี</p>
+        <hr>
+        <?php endif ?>
 
 
         <div class="bottomHeight"></div>

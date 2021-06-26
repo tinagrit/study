@@ -2,6 +2,8 @@
     require_once('crud/server.php');
     session_start();
 
+    
+
     if (!isset($_SESSION["username"])) {
         header('location: start.php');
     }
@@ -13,8 +15,8 @@
     }
 
 
-    if (isset($_REQUEST['subjid'])) {
-        $subjid = $_REQUEST['subjid'];
+    if (isset($_REQUEST['id'])) {
+        $subjid = $_REQUEST['id'];
         $subject_stmt = $db->prepare('SELECT * FROM `subj` WHERE subjid = :subjid');
         $subject_stmt -> bindParam(':subjid',$subjid);
         if ($subject_stmt -> execute()) {
@@ -24,15 +26,30 @@
         header('location: index.php');
     }
 
+    
+
     $frn = $subjrow['friendlyname'];
 
     $username = $_SESSION["username"];
+
+    
+
+    
     
 
     $select_stmt = $db->prepare("SELECT * FROM `users` WHERE username = :username");
     $select_stmt->bindParam(':username', $username);
     $select_stmt->execute();
     $row1 = $select_stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (isset($_GET['download'])) {
+        if ($row1["$frn"] == 2) {
+            header("Content-type:application/pdf");
+            header("Content-Disposition:attachment;filename=" . $frn . " - " . $username .".pdf");
+            readfile("filesdonottouch/" . $subjrow['name'] . ".pdf");
+        }
+           
+    }
 
     if (isset($_GET['requests'])) {
         $make_request_stmt = $db -> prepare("UPDATE `users` SET `$frn` = 1 WHERE id = :id");
@@ -53,7 +70,7 @@
                         $insert_request -> bindParam(':username',$username);
                         $insert_request -> bindParam(':frn',$frn);
                         if ($insert_request -> execute()) {
-                            header('location: subj.php?subjid=' . $subjid);
+                            header('location: subj.php?id=' . $subjid);
                         }
                         
                     }
@@ -108,11 +125,16 @@
         <div class="box transparentbox onlandscape">
             <p><strong>โปรทิป:</strong> Tinagrit Study ทำงานได้ดีกว่าในหน้าจอแคบ</p>
         </div>
+        
         <div class="box transparentbox onprint">
             <p>เว็ปนี้ไม่ได้ออกแบบมาเพื่อการพิมพ์ อาจเกิดข้อผิดพลาดในการแสดงผลข้อมูล</p>
         </div>
-        
 
+        <div class="box yellowgradient">
+            <h3 style="margin: 0 25px; text-align: center;"><strong><?php echo $subjrow['descs'] ?></strong></h3>
+        </div>
+        
+        
 
 
         <div class="bottomHeight"></div>
