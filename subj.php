@@ -122,9 +122,9 @@
 
 
 
-        <div class="box transparentbox onlandscape">
+        <!-- <div class="box transparentbox onlandscape">
             <p><strong>โปรทิป:</strong> Tinagrit Study ทำงานได้ดีกว่าในหน้าจอแคบ</p>
-        </div>
+        </div> -->
         
         <div class="box transparentbox onprint">
             <p>เว็ปนี้ไม่ได้ออกแบบมาเพื่อการพิมพ์ อาจเกิดข้อผิดพลาดในการแสดงผลข้อมูล</p>
@@ -137,10 +137,14 @@
         
 
 
-        <div class="bottomHeight"></div>
-        <div class="tabs">
-            <hr style="margin: 0.5px 0 0 0">
-            <div class="download">
+        
+    </div>
+
+    <div class="bottomHeight"></div>
+    <div class="tabs">
+        <hr style="margin: 0; height: 1px; padding: 0">
+        <div class="contents">
+        <div class="download">
                 <?php  if ($row1["$frn"] == 0) : ?>
                 <div class="download-button download-button-blue">
                     <h2>ส่งคำขอ</h2>
@@ -159,13 +163,20 @@
                 </div>
                 <?php endif ?>
             </div>
-            <ul class='tabs-nav '>
-                <li class="tabs-li"><div><i class="fas fa-home"></i><br><span class='navdesc'>Home</span></div></li>
-                <li class="tabs-li"><div><i class="fas fa-tools"></i><br><span class='navdesc'>Tools</span></div></li>
-                <li class="tabs-li"><div><i class="fas fa-user"></i><br><span class='navdesc'>Account</span></div></li>
+            <ul class='tabs-nav'>
+                <li class="tabs-li">
+                    <div><i class="fas fa-home"></i><br><span class='navdesc'>Home</span></div>
+                </li>
+                <li class="tabs-li">
+                    <div><i class="fas fa-tools"></i><br><span class='navdesc'>Tools</span></div>
+                </li>
+                <li class="tabs-li">
+                    <div><i class="fas fa-user"></i><br><span class='navdesc'>Account</span></div>
+                </li>
             </ul>
-            
         </div>
+
+
     </div>
 
 

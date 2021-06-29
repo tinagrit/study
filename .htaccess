@@ -1,4 +1,4 @@
 Options -Indexes
-ErrorDocument 403 forbidden.php
+ErrorDocument 403 403forbidden.php
 
 Header set Access-Control-Allow-Origin "*"

@@ -1,6 +1,7 @@
 <?php 
     session_start();
     include('server.php');
+    include('secretcode.php');
     require_once('crud/server.php');
     
     $errors = array();
@@ -15,7 +16,21 @@
         }
 
         
-
+        if (isset($_POST['g-recaptcha-response'])) {
+            $ip = $_SERVER["REMOTE_ADDR"];
+            $response = $_POST['g-recaptcha-response'];
+            $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secretcaptcha&response=$response";
+            $fire = file_get_contents($url);
+            $_SESSION['fire'] = $fire;
+            $result = substr($fire,14,5);
+            if($result != " true") {
+                header('location: start.php');
+                exit();
+            }
+        } else {
+            header('location: start.php');
+            exit();
+        }
 
         $user_check_query = "SELECT * FROM `users` WHERE `username` = '$username' LIMIT 1";
         $query = mysqli_query($conn, $user_check_query);

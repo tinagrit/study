@@ -70,6 +70,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD - Tinagrit Study</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="crud.css">
@@ -95,10 +98,16 @@
             <input style="font-size: 15px; padding: 5px; margin-left: 10px" type="text" autocomplete="off" name="username" value="<?php echo $username; ?>"><br>
 
             <label for="roles" style="font-size: 20px">Role</label>
-            <select style="font-size: 15px; padding: 5px; margin-left: 10px; margin-top: 10px" name="roles" value="<?php echo $roles; ?>">
+            <select style="font-size: 15px; padding: 5px; margin-left: 10px; margin-top: 10px" name="roles">
 
-                <option value="User">User</option>
-                <option value="Admin">Admin</option>
+                <?php if($roles == "User") : ?>
+                    <option value="User" selected>User</option>
+                    <option value="Admin">Admin</option>
+                <?php elseif ($roles == "Admin") : ?>
+                    <option value="User">User</option>
+                    <option value="Admin" selected>Admin</option>
+                <?php endif ?>
+                
 
             </select><br>
 
@@ -108,6 +117,24 @@
 
 
         </form>
+                </div>
+                <div class="tabs">
+        <hr style="margin: 0; height: 1px; padding: 0">
+        <div class="contents">
+            <ul class='tabs-nav'>
+                <li class="tabs-li-crud">
+                    <div><i class="fas fa-home"></i><br><span class='navdesc'>Home</span></div>
+                </li>
+                <li class="tabs-li-crud tabs-nav-selected">
+                    <div><i class="fas fa-tools"></i><br><span class='navdesc'>Tools</span></div>
+                </li>
+                <li class="tabs-li-crud">
+                    <div><i class="fas fa-user"></i><br><span class='navdesc'>Account</span></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="../index.js"></script>
 
         <script src="js/slim.js"></script>
         <script src="js/popper.js"></script>

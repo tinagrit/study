@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
 
@@ -53,25 +54,32 @@
         <p>This display is unsupported, which could break the website's styling.</p>
     </div>
 
+
+    <div class="header darkbluegradient">
+        <div class="contents">
+            <h1 class="pagetitle"><strong>Study</strong><i class="fas fa-user-circle userprofile"></i></h1>
+
+            <hr>
+            <h1 style="margin: 0; padding-left: 25px">content</h1>
+        </div>
+
+    </div>
+    <div class="headerbottom darkbluegradient">
+        <div class='scrolldown'>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
     <div class="contents">
-        <h1 class="pagetitle"><strong>Study</strong><i class="fas fa-user-circle userprofile"></i></h1>
-
-        <hr>
-
-        <div class="box bluegradient countdownbox">
-            <?php if (isset($_SESSION["username"])) : ?>
-            <h1>สวัสดี <?php echo $_SESSION["username"] ?></h1>
-            <?php endif ?>
-            <p>Paragraph</p>
-        </div>
-
-
-
-
-
-        <div class="box transparentbox onlandscape">
+        <!-- <div class="box transparentbox onlandscape">
             <p><strong>โปรทิป:</strong> Tinagrit Study ทำงานได้ดีกว่าในหน้าจอแคบ</p>
-        </div>
+        </div> -->
         <div class="box transparentbox onprint">
             <p>เว็ปนี้ไม่ได้ออกแบบมาเพื่อการพิมพ์ อาจเกิดข้อผิดพลาดในการแสดงผลข้อมูล</p>
         </div>
@@ -89,7 +97,20 @@
             <p><strong>RESPONSE CODE:</strong> <?php  echo '200 OK'; ?></p><br>
             <a href="crud"><strong>REDIRECT TO CRUD</a>
         </div>
-        <div class="box redgradient outbreak">
+        <?php if (!isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'on') : ?>
+        <div class="box redgradient" data-aos="zoom-in">
+            <h1><i class="fas fa-unlock" style="margin-right:10px"></i> การเชื่อมต่อไม่ปลอดภัย</h1>
+            <p>Tinagrit Study รันบนโปรโตคอลที่ปลอดภัย (HTTPS)
+                การเชื่อมต่อในลักษณะนี้อาจทำให้ไม่สามารถแสดงผลข้อมูลบางอย่างได้</p>
+            <div class="buttonarrow">
+                <a href="https://study.tinagrit.com"><i class="fas fa-arrow-right"></i>
+                    <p>ลองใหม่อีกครั้ง</p>
+                </a>
+            </div>
+        </div>
+        <?php endif ?>
+
+        <div class="box redgradient outbreak" >
             <h1>การระบาดของ COVID-19</h1>
             <div class="Height15PX" style="height: 10px;"></div>
             <div class="covidnum">
@@ -106,58 +127,71 @@
                 </a>
             </div>
         </div>
-        
-        <div class="box transparentbox">
+
+        <div class="box transparentbox" data-aos="zoom-in">
             <h1>hello</h1>
             <p>content</p>
         </div>
-        <div class="box transparentbox">
+        <div class="box transparentbox" data-aos="zoom-in">
             <h1>hello</h1>
             <p>content</p>
         </div>
-        <div class="box transparentbox">
+        <div class="box transparentbox" data-aos="zoom-in">
             <h1>hello</h1>
             <p>content</p>
         </div>
-        <div class="box transparentbox">
+        <div class="box transparentbox" data-aos="zoom-in">
             <h1>hello</h1>
             <p>content</p>
         </div>
-        <div class="box transparentbox">
+        <div class="box transparentbox" data-aos="zoom-in">
             <h1>hello</h1>
             <p>content</p>
         </div>
-        <div class="box transparentbox">
+        <div class="box transparentbox" data-aos="zoom-in">
             <h1>hello</h1>
             <p>content</p>
         </div>
-        <div class="box transparentbox">
+        <div class="box transparentbox" data-aos="zoom-in">
             <h1>hello</h1>
             <p>content</p>
         </div>
-        <div class="box transparentbox">
+        <div class="box transparentbox" data-aos="zoom-in">
             <h1>hello</h1>
             <p>content</p>
         </div>
 
 
 
-        <div class="bottomHeight"></div>
-        <div class="tabs">
-            <hr style="margin: 0.5px 0 0 0">
-            <ul class='tabs-nav '>
-                <li class="tabs-li tabs-nav-selected"><div><i class="fas fa-home"></i><br><span class='navdesc'>Home</span></div></li>
-                <li class="tabs-li"><div><i class="fas fa-tools"></i><br><span class='navdesc'>Tools</span></div></li>
-                <li class="tabs-li"><div><i class="fas fa-user"></i><br><span class='navdesc'>Account</span></div></li>
-            </ul>
-            
-        </div>
+
     </div>
 
+    <div class="bottomHeight"></div>
+    <div class="tabs">
+        <hr style="margin: 0; height: 1px; padding: 0">
+        <div class="contents">
+            <ul class='tabs-nav'>
+                <li class="tabs-li tabs-nav-selected">
+                    <div><i class="fas fa-home"></i><br><span class='navdesc'>Home</span></div>
+                </li>
+                <li class="tabs-li">
+                    <div><i class="fas fa-tools"></i><br><span class='navdesc'>Tools</span></div>
+                </li>
+                <li class="tabs-li">
+                    <div><i class="fas fa-user"></i><br><span class='navdesc'>Account</span></div>
+                </li>
+            </ul>
+        </div>
 
+
+    </div>
+
+    
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="ios.js"></script>
     <script src="index.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
 </body>
 
 </html>

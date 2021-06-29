@@ -3,18 +3,18 @@ function comma(x) {
 }
 
 
-if (document.querySelector('.outbreak')) {
-    fetch('https://covid19.th-stat.com/json/covid19v2/getTodayCases.json')
-    .then(response => response.json())
-    .then(data => {
-        document.querySelector('.outbreak').style.display = 'block';
-        document.querySelector('.outbreak .covidnew').innerHTML = '+ ' + comma(data.NewConfirmed);
-        document.querySelector('.outbreak .covidtotal').innerHTML = comma(data.Confirmed);
-    })
-    .catch(err => {
-        console.log(err)
-    })
-}
+// if (document.querySelector('.outbreak')) {
+//     fetch('https://covid19.th-stat.com/json/covid19v2/getTodayCases.json')
+//     .then(response => response.json())
+//     .then(data => {
+//         document.querySelector('.outbreak').style.display = 'block';
+//         document.querySelector('.outbreak .covidnew').innerHTML = '+ ' + comma(data.NewConfirmed);
+//         document.querySelector('.outbreak .covidtotal').innerHTML = comma(data.Confirmed);
+//     })
+//     .catch(err => {
+//         console.log(err)
+//     })
+// }
 
 
 
@@ -153,5 +153,35 @@ if (document.querySelector('.deletebutton')) {
                     break;
               }
           })
+    })
+}
+
+if(document.querySelector('.tabs-li')) {
+
+    document.querySelectorAll('.tabs-li')[0].addEventListener('click', () => {
+        location.replace('index.php');
+    })
+
+    document.querySelectorAll('.tabs-li')[1].addEventListener('click', () => {
+        location.replace('403forbidden.php');
+    })
+
+    document.querySelectorAll('.tabs-li')[2].addEventListener('click', () => {
+        location.replace('account.php');
+    })
+}
+
+if(document.querySelector('.tabs-li-crud')) {
+
+    document.querySelectorAll('.tabs-li-crud')[0].addEventListener('click', () => {
+        location.replace('../index.php');
+    })
+
+    document.querySelectorAll('.tabs-li-crud')[1].addEventListener('click', () => {
+        location.replace('../403forbidden.php');
+    })
+
+    document.querySelectorAll('.tabs-li-crud')[2].addEventListener('click', () => {
+        location.replace('../account.php');
     })
 }

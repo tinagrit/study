@@ -13,6 +13,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="index.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -48,6 +49,10 @@
                 <input type="text" class="usernameBox" name="username" placeholder="ชื่อผู้ใช้" autocomplete="off">
                 <button type="submit" class="submitButton" name='reg_user'><i
                         class="fas fa-arrow-circle-right fa-3x"></i></button>
+                <div class="captcha">
+                    <div class="g-recaptcha" data-sitekey="6LepFGQbAAAAACTVcyB2J3zvkYPmUBCg7h6YpqGp"></div>
+                </div>
+                
 
             </form>
 

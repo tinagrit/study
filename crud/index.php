@@ -100,6 +100,25 @@
         </tbody>
     </table>
     </div>
+    <div class="bottomHeight"></div>
+    <div class="tabs">
+        <hr style="margin: 0; height: 1px; padding: 0">
+        <div class="contents">
+            <ul class='tabs-nav'>
+                <li class="tabs-li-crud">
+                    <div><i class="fas fa-home"></i><br><span class='navdesc'>Home</span></div>
+                </li>
+                <li class="tabs-li-crud tabs-nav-selected">
+                    <div><i class="fas fa-tools"></i><br><span class='navdesc'>Tools</span></div>
+                </li>
+                <li class="tabs-li-crud">
+                    <div><i class="fas fa-user"></i><br><span class='navdesc'>Account</span></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="../index.js"></script>
+
     
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
