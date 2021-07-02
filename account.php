@@ -41,6 +41,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="crud/crud.css">
+    <link rel="shortcut icon" href="logo/favicon.png">
 </head>
 
 <body>
@@ -171,7 +172,7 @@
 
                     <?php
                      
-                     $ignore = array('USER','CURRENT_CONNECTIONS','TOTAL_CONNECTIONS','id','username','roles');
+                     $ignore = array('USER','CURRENT_CONNECTIONS','TOTAL_CONNECTIONS','id','username','roles','password');
                      $get_col_name = $db->prepare("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'users'");
                      $get_col_name -> execute();
                      while ($column = $get_col_name -> fetch(PDO::FETCH_ASSOC)) {
@@ -217,16 +218,17 @@
         </div>
         
         <div style="height: 20px;"></div>
-        <hr style="margin-bottom: 0;">
-        <p class="dangerButton logoutbutton">ออกจากระบบ</p>
+        
 
         <?php if (in_array($username,$restricted)) : ?>
-        <hr>
+        
         <?php else : ?>
         <hr style="margin-bottom: 0;">
         <p class="dangerButton deletebutton">ลบบัญชี</p>
-        <hr>
         <?php endif ?>
+        <hr style="margin-bottom: 0;">
+        <p class="dangerButton logoutbutton">ออกจากระบบ</p>
+        <hr>
 
 
        

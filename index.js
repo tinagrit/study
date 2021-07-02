@@ -159,29 +159,29 @@ if (document.querySelector('.deletebutton')) {
 if(document.querySelector('.tabs-li')) {
 
     document.querySelectorAll('.tabs-li')[0].addEventListener('click', () => {
-        location.replace('index.php');
+        location.href = 'index.php';
     })
 
     document.querySelectorAll('.tabs-li')[1].addEventListener('click', () => {
-        location.replace('403forbidden.php');
+        location.href = '403forbidden.php';
     })
 
     document.querySelectorAll('.tabs-li')[2].addEventListener('click', () => {
-        location.replace('account.php');
+        location.href = 'account.php';
     })
 }
 
 if(document.querySelector('.tabs-li-crud')) {
 
     document.querySelectorAll('.tabs-li-crud')[0].addEventListener('click', () => {
-        location.replace('../index.php');
+        location.href = '../index.php';
     })
 
     document.querySelectorAll('.tabs-li-crud')[1].addEventListener('click', () => {
-        location.replace('../403forbidden.php');
+        location.href = '../403forbidden.php';
     })
 
     document.querySelectorAll('.tabs-li-crud')[2].addEventListener('click', () => {
-        location.replace('../account.php');
+        location.href = '../account.php';
     })
 }

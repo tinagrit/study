@@ -1,4 +1,4 @@
-<?php include('server.php') ?>
+<?php  session_start(); include('server.php') ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +13,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="logo/favicon.png">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
@@ -34,14 +35,13 @@
     </div>
     <div class="contents">
         <img src="" alt="" class="banner">
-
-        <div class="box transparentbox onlandscape"
-            style="position: absolute; top: 0; background-color: white; width: 80%; text-align: center;">
-            <p><strong>โปรทิป:</strong> Tinagrit Study ทำงานได้ดีกว่าในหน้าจอแคบ</p>
-        </div>
         <div class="textCenter" style="padding: 0 25px;">
             <h1 style="margin-bottom: 5px;">ยินดีต้อนรับสู่ Tinagrit Study</h1>
             <p style="margin-top: 5px;">เข้าสู่ระบบโดยกรอกชื่อผู้ใช้ Instagram ที่กล่องด้านล่าง</p>
+            <?php if (isset($_SESSION['autherror'])) {
+                echo "<p>" . $_SESSION['autherror'] ."</p>";
+                session_destroy();
+            } ?>
 
 
             <form method="post" action="register.php">
@@ -63,9 +63,8 @@
 
             <br>
             <div class="buttonarrow"
-                onclick="swal('ระบบจะจัดเก็บชื่อผู้ใช้พร้อมกับไอดีไว้ในเบราเซอร์คุกกี้ที่มีอายุ 7 วัน และในฐานข้อมูล ระบบจะขอไอดีจากเบราเซอร์เพื่อยืนยันตัวตนทุกครั้งที่ใช้งาน\n\nเมื่อผู้ใช้เปลี่ยนเบราเซอร์หรือออกจากระบบ เมื่อกรอกชื่อเดิม ระบบจะตรวจสอบหากมีชื่อซํ้าในฐานข้อมูล และให้ไอดีเดิมกับผู้ใช้')">
-                <a><i class="fas fa-arrow-right" style="color: black; font-size: 15px;"></i>
-                    <p style="color: black; font-size: 15px;">เพิ่มเติมเกี่ยวกับไอดีผู้ใช้</p>
+                ><a href="policy.html"><i class="fas fa-arrow-right" style="color: black; font-size: 15px;" ></i>
+                    <p style="color: black; font-size: 15px;">ข้อกำหนดการใช้บริการ</p>
                 </a>
             </div>
         </div>

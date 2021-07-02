@@ -11,6 +11,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="logo/favicon.png">
 </head>
 
 <body>

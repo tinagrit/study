@@ -35,6 +35,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="logo/favicon.png">
 </head>
 
 <body>
