@@ -1,0 +1,54 @@
+.table-timeline-wrap {
+    overflow-x: scroll;
+    position: relative;
+    max-width: 1000px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table-timeline {
+    table-layout: fixed;
+    border-collapse: separate;
+    width: 100%;
+    white-space: nowrap;
+}
+
+/* .table-timeline, .table-timeline th, .table-timeline td {
+    border: 1px solid black;
+} */
+
+.table-timeline th {
+    text-align: left;
+    width: 80px;
+    height: 34px;
+    position: -webkit-sticky;
+    background-color: white;
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    padding: 0;
+    border: none;
+}
+
+.table-timeline td {
+    text-align: center;
+    padding: 8px;
+    height: 100%;
+
+}
+
+.table-timeline td:not(.time) {
+    border-radius: 10px;
+    border: #ffff solid 1px;
+    color: white;
+}
+
+.table-timeline .day {
+    text-align: left;
+    padding: 0 0 0 25px;
+    height: 20px;
+    color: white;
+    font-weight: bold;
+    margin: 0;
+}

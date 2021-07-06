@@ -28,6 +28,11 @@ if(isset($_SESSION['existinguser'])) {
     <link rel="shortcut icon" href="logo/favicon.png">
 
     <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
         @media screen and (max-height: 340px) {
             .onMiddle {
                 display: block;
@@ -67,10 +72,10 @@ if(isset($_SESSION['existinguser'])) {
             <form method="post" action="register.php">
 
                 <div class="passwordContainer">
-                    <input type="password" pattern="[0-9]*" class="passwordBox" name="password1" maxlength='1' id="password1" onkeyup="typePassword(this,'password2','password1')" autocomplete="off">
-                    <input type="password" pattern="[0-9]*" class="passwordBox" name="password2" maxlength='1' id="password2" onkeyup="typePassword(this,'password3','password1')" autocomplete="off">
-                    <input type="password" pattern="[0-9]*" class="passwordBox" name="password3" maxlength='1' id="password3" onkeyup="typePassword(this,'password4','password2')" autocomplete="off">
-                    <input type="password" pattern="[0-9]*" class="passwordBox" name="password4" maxlength='1' id="password4" onkeyup="typePassword(this,'password4','password3'); checkButton()" autocomplete="off">
+                    <input type="number" min="0" max ="9" pattern="[0-9]{1}" class="passwordBox" name="password1" maxlength='1' id="password1" onkeyup="typePassword(this,'password2','password1')" autocomplete="off">
+                    <input type="number" min="0" max ="9" pattern="[0-9]{1}" class="passwordBox" name="password2" maxlength='1' id="password2" onkeyup="typePassword(this,'password3','password1')" autocomplete="off">
+                    <input type="number" min="0" max ="9" pattern="[0-9]{1}" class="passwordBox" name="password3" maxlength='1' id="password3" onkeyup="typePassword(this,'password4','password2')" autocomplete="off">
+                    <input type="number" min="0" max ="9" pattern="[0-9]{1}" class="passwordBox" name="password4" maxlength='1' id="password4" onkeyup="typePassword(this,'password4','password3'); checkButton()" autocomplete="off">
                 </div>
 
                 <input name="username" style="display:none" value="<?php echo $username ?>">
@@ -110,10 +115,10 @@ if(isset($_SESSION['existinguser'])) {
             <form method="post" action="register.php">
 
                 <div class="passwordContainer">
-                    <input type="password" pattern="[0-9]*" class="passwordBox" name="password1" maxlength='1' id="password1" onkeyup="typePassword(this,'password2','password1')" autocomplete="off">
-                    <input type="password" pattern="[0-9]*" class="passwordBox" name="password2" maxlength='1' id="password2" onkeyup="typePassword(this,'password3','password1')" autocomplete="off">
-                    <input type="password" pattern="[0-9]*" class="passwordBox" name="password3" maxlength='1' id="password3" onkeyup="typePassword(this,'password4','password2')" autocomplete="off">
-                    <input type="password" pattern="[0-9]*" class="passwordBox" name="password4" maxlength='1' id="password4" onkeyup="typePassword(this,'password4','password3'); checkButton()" autocomplete="off">
+                    <input type="number" min="0" max ="9" pattern="[0-9]{1}" class="passwordBox" name="password1" maxlength='1' id="password1" onkeyup="typePassword(this,'password2','password1')" autocomplete="off">
+                    <input type="number" min="0" max ="9" pattern="[0-9]{1}" class="passwordBox" name="password2" maxlength='1' id="password2" onkeyup="typePassword(this,'password3','password1')" autocomplete="off">
+                    <input type="number" min="0" max ="9" pattern="[0-9]{1}" class="passwordBox" name="password3" maxlength='1' id="password3" onkeyup="typePassword(this,'password4','password2')" autocomplete="off">
+                    <input type="number" min="0" max ="9" pattern="[0-9]{1}" class="passwordBox" name="password4" maxlength='1' id="password4" onkeyup="typePassword(this,'password4','password3'); checkButton()" autocomplete="off">
                 </div>
 
                 <input name="username" style="display:none" value="<?php echo $username ?>">
@@ -133,12 +138,35 @@ if(isset($_SESSION['existinguser'])) {
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        document.getElementById('password1').focus();
+        let hasDeleted = 0;
         function typePassword(now,next,before) {
             if (now.value.length) {
+                now.style.backgroundColor = 'black';
                 document.getElementById(next).focus();
             } else {
-                document.getElementById(before).focus();
+                if ((document.getElementById('password4') === document.activeElement)) {
+                    
+
+                    if (hasDeleted == 1) {
+                        document.getElementById(before).value = '';
+                        document.getElementById(before).style.backgroundColor = 'white';
+                        document.getElementById(before).focus();
+                        hasDeleted = 0;
+                    } else {
+                        now.style.backgroundColor = 'white';
+                        now.value = '';
+                        now.focus();
+                        hasDeleted = 1;
+                    }
+                       
+                    
+                } else {
+                    document.getElementById(before).value = '';
+                    document.getElementById(before).style.backgroundColor = 'white';
+                    document.getElementById(before).focus();
+                }
+
+                
             }
         }
         function checkButton() {

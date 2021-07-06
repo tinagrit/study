@@ -13,6 +13,6 @@ function detectVPN() {
 }
 detectVPN().then(function (detectionResult) {
     if(detectionResult.usingVPN) {
-        window.location.href = "forbidden.php";
+        window.location.href = "./403forbidden.php";
     }
 })

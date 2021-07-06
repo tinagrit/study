@@ -34,7 +34,7 @@
         <p>This display is unsupported, which could break the website's styling.</p>
     </div>
     <div class="contents">
-        <img src="" alt="" class="banner">
+        <img src="logo/color-on-tran.png" alt="" class="starticon">
         <div class="textCenter" style="padding: 0 25px;">
             <h1 style="margin-bottom: 5px;">ยินดีต้อนรับสู่ Tinagrit Study</h1>
             <p style="margin-top: 5px;">เข้าสู่ระบบโดยกรอกชื่อผู้ใช้ Instagram ที่กล่องด้านล่าง</p>
@@ -50,7 +50,7 @@
                 <button type="submit" class="submitButton" name='reg_user'><i
                         class="fas fa-arrow-circle-right fa-3x"></i></button>
                 <div class="captcha">
-                    <div class="g-recaptcha" data-sitekey="6LepFGQbAAAAACTVcyB2J3zvkYPmUBCg7h6YpqGp"></div>
+                    <div data-theme="light" class="g-recaptcha" data-sitekey="6LepFGQbAAAAACTVcyB2J3zvkYPmUBCg7h6YpqGp"></div>
                 </div>
                 
 

@@ -1,4 +1,11 @@
 Options -Indexes
-ErrorDocument 403 403forbidden.php
+ErrorDocument 403 /403forbidden.html
+RewriteEngine on
+RewriteRule ^403forbidden.html$ /index.php [R=301]
 
 Header set Access-Control-Allow-Origin "*"
+
+<IfModule mod_security.c>
+SecFilterEngine Off
+SecFilterScanPOST Off
+</IfModule>

@@ -29,6 +29,13 @@
     
 
     $frn = $subjrow['friendlyname'];
+    $name = $subjrow['name'];
+
+    if(empty($name)) {
+        http_response_code(404);
+        header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found", true, 404);
+        die();
+    }
 
     $username = $_SESSION["username"];
 
@@ -45,7 +52,7 @@
     if (isset($_GET['download'])) {
         if ($row1["$frn"] == 2) {
             header("Content-type:application/pdf");
-            header("Content-Disposition:attachment;filename=" . $frn . " - " . $username .".pdf");
+            header("Content-Disposition:attachment;filename=" . $name . " - " . $username .".pdf");
             readfile("filesdonottouch/" . $subjrow['name'] . ".pdf");
         }
            

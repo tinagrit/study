@@ -2,6 +2,20 @@ function comma(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+const observer = new IntersectionObserver(entries => {
+    // Loop over the entries
+    entries.forEach(entry => {
+      // If the element is visible
+      if (entry.isIntersecting) {
+        // Add the animation class
+        entry.target.classList.add('zoomin-trigger');
+      }
+    });
+  });
+  
+  document.querySelectorAll("div[data-transition='true']").forEach(item => {
+      observer.observe(item);
+  })
 
 // if (document.querySelector('.outbreak')) {
 //     fetch('https://covid19.th-stat.com/json/covid19v2/getTodayCases.json')
@@ -183,5 +197,22 @@ if(document.querySelector('.tabs-li-crud')) {
 
     document.querySelectorAll('.tabs-li-crud')[2].addEventListener('click', () => {
         location.href = '../account.php';
+    })
+}
+
+let tableState = 0;
+if (document.querySelector('.switchTable')) {
+    document.querySelector('.switchTable').addEventListener('click', () => {
+        if (tableState == 0) {
+            document.querySelector('.tableContainer').style.display = 'block';
+            document.querySelector('.table-timeline-wrap').style.display = 'none';
+            document.querySelector('.switchTable').innerHTML = 'คลิกที่นี่ เพื่อเปลี่ยนไปดูแบบไทม์ไลน์';
+            tableState = 1;
+        } else if (tableState == 1) {
+            document.querySelector('.tableContainer').style.display = 'none';
+            document.querySelector('.table-timeline-wrap').style.display = 'block';
+            document.querySelector('.switchTable').innerHTML = 'ถ้าการแสดงผลดูแปลกๆ คลิกที่นี่ เพื่อดูแบบตาราง';
+            tableState = 0;
+        }
     })
 }
