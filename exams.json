@@ -1,0 +1,191 @@
+{
+    "api": "API ติดตามตารางสอบ โรงเรียนอัสสัมชัญธนบุรี",
+    "author": "Tinagrit Leelawat (TinagritProject)",
+    "source": "http://www.act.ac.th",
+    "info": {
+        "active": true,
+        "name": "สอบกลางภาค 1/2564",
+        "focus": "ม.4"
+    },
+    "subj": [{
+            "name": "thai",
+            "friendlyname": "ภาษาไทย",
+            "date": "วันอังคารที่ 30 มี.ค. 2564",
+            "start": "1627609200000",
+            "subjid": "",
+            "scope": "all"
+        },
+        {
+            "name": "history",
+            "friendlyname": "ประวัติศาสตร์",
+            "date": "วันอังคารที่ 30 มี.ค. 2564",
+            "start": "1627613400000",
+            "subjid": "",
+            "scope": "all"
+        },
+        {
+            "name": "english",
+            "friendlyname": "ภาษาอังกฤษ",
+            "date": "วันอังคารที่ 30 มี.ค. 2564",
+            "start": "1627617600000",
+            "subjid": "",
+            "scope": ""
+        },
+        {
+            "name": "englishextra",
+            "friendlyname": "ภาษาอังกฤษเพิ่มเติม",
+            "date": "วันอังคารที่ 30 มี.ค. 2564",
+            "start": "1627627200000",
+            "subjid": "",
+            "scope": ""
+        },
+        {
+            "group": [{
+                    "name": "machanic",
+                    "friendlyname": "กลศาสตร์",
+                    "subjid": "",
+                    "scope": "1"
+                },
+                {
+                    "name": "physicsextra",
+                    "friendlyname": "ฟิสิกส์เพิ่มเติม",
+                    "subjid": "",
+                    "scope": "2-3"
+                },
+                {
+                    "name": "physics",
+                    "friendlyname": "ฟิสิกส์",
+                    "subjid": "",
+                    "scope": "A วิทย์"
+                },
+                {
+                    "name": "asean",
+                    "friendlyname": "เปิดประตูสู่อาเซียน",
+                    "subjid": "",
+                    "scope": "4-7,A ศิลป์"
+                }
+            ],
+            "start": "1627631400000",
+            "date": "วันอังคารที่ 30 มี.ค. 2564"
+        },
+        {
+            "group": [{
+                    "name": "prob",
+                    "friendlyname": "ความน่าจะเป็น",
+                    "subjid": "",
+                    "scope": ""
+                },
+                {
+                    "name": "math",
+                    "friendlyname": "คณิตศาสตร์",
+                    "subjid": "",
+                    "scope": ""
+                }
+            ],
+            "start": "",
+            "date": "วันพฤหัสบดีที่ 1 เม.ย. 2564"
+        },
+        {
+            "name": "social",
+            "friendlyname": "สังคมศึกษา",
+            "date": "วันพฤหัสบดีที่ 1 เม.ย. 2564",
+            "start": "",
+            "subjid": "",
+            "scope": ""
+        },
+        {
+            "name": "science",
+            "friendlyname": "วิทยาศาสตร์",
+            "date": "วันพฤหัสบดีที่ 1 เม.ย. 2564",
+            "start": "",
+            "subjid": "",
+            "scope": ""
+        },
+        {
+            "group": [{
+                    "name": "stoichio",
+                    "friendlyname": "ปริมาณสัมพันธ์",
+                    "subjid": "",
+                    "scope": ""
+                },
+                {
+                    "name": "chemicalextra",
+                    "friendlyname": "เคมีเพิ่มเติม",
+                    "subjid": "",
+                    "scope": ""
+                },
+                {
+                    "name": "englishspeak",
+                    "friendlyname": "ภาษาอังกฤษ ฟัง-พูด",
+                    "subjid": "",
+                    "scope": ""
+                },
+                {
+                    "name": "chemical",
+                    "friendlyname": "เคมี",
+                    "subjid": "",
+                    "scope": ""
+                },
+                {
+                    "name": "ielts",
+                    "friendlyname": "IELTS",
+                    "subjid": "",
+                    "scope": ""
+                }
+            ],
+            "start": "",
+            "date": "วันพฤหัสบดีที่ 1 เม.ย. 2564"
+        },
+        {
+            "group": [{
+                    "name": "function",
+                    "friendlyname": "ความสัมพันธ์และฟังก์ชัน",
+                    "subjid": "",
+                    "scope": ""
+                },
+                {
+                    "name": "mathextra",
+                    "friendlyname": "คณิตศาสตร์เพิ่มเติม",
+                    "subjid": "",
+                    "scope": ""
+                }
+            ],
+            "start": "",
+            "date": "วันจันทร์ที่ 5 เม.ย. 2564"
+        },
+        {
+            "group": [{
+                    "name": "evolution",
+                    "friendlyname": "พันธุศาสตร์และวิวัฒนาการ",
+                    "subjid": "",
+                    "scope": ""
+                },
+                {
+                    "name": "bioextra",
+                    "friendlyname": "ชีววิทยาเพิ่มเติม",
+                    "subjid": "",
+                    "scope": ""
+                },
+                {
+                    "name": "bio",
+                    "friendlyname": "ชีววิทยา",
+                    "subjid": "",
+                    "scope": ""
+                }
+            ],
+            "start": "",
+            "date": "วันจันทร์ที่ 5 เม.ย. 2564"
+        },
+        {
+            "name": "astronomy",
+            "friendlyname": "โลก ดาราศาสตร์ และอวกาศ",
+            "date": "วันจันทร์ที่ 5 เม.ย. 2564",
+            "start": "99999999999999999",
+            "subjid": "",
+            "scope": ""
+        }
+    ]
+}
+
+
+

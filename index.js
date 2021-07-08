@@ -1,3 +1,5 @@
+console.log("%cWARNING!\n","color:orange;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold");console.log("%cPLEASE READ, THIS IS IMPORTANT","font-size: 2rem; color: red;-webkit-text-stroke: 1px black; font-weight: bold;");console.log("%cThis is called 'JavaScript Console', which you can execute codes and make changes to the website you see.","font-size: 1rem");console.log("%cSo the dangerous thing is that hackers may ask you to paste some codes here, and it may do something you don't want to, like deleting your account, or send them your personal information.","font-size: 1rem");console.log("%cThat means if you're NOT developers, and you got some codes to paste, JUST STOP, unless it IS trustworthy","font-size: 1rem");
+
 function comma(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }

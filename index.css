@@ -82,6 +82,57 @@ a {
     margin: 30px auto 0 auto;
 }
 
+.welcome {
+    font-size: 15px;
+    padding: 0;
+}
+
+.subjfrn {
+    margin: 0;
+}
+
+.countdown {
+    margin: 20px 0 0 0;
+    display: none;
+    justify-content: space-evenly;
+}
+
+.time-con  {
+    margin: 0;
+    background-color: #334257;
+    padding: 10px;
+    border-radius: 10px;
+    width: 50px;
+    text-align: center;
+}
+
+.time-con h1, .time-con p {
+    margin: 0;
+}
+
+.time-con h1 {
+    display: none;
+}
+
+.time-con p {
+    font-size: 12px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+.loader {
+    border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 3px auto;
+  animation: spin 2s linear infinite;
+}
+
 .imios li {
     padding-bottom: 120px;
     transition: padding 300ms;

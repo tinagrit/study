@@ -63,8 +63,34 @@
                 <h1 class="pagetitle"><strong>Study</strong><i class="fas fa-user-circle userprofile"></i></h1>
 
                 <hr>
-                <div class="headcontent" data-transition='true'>
-                    <h1 style="margin: 0; padding-left: 25px">content</h1>
+                <div class="headcontent count" data-transition='true'>
+                    <p class="textCenter welcome" style="margin: 0;">สวัสดี <?php echo $_SESSION['username'] ?>!</p>
+                    <div class="subjects">
+                        <h1 class="subjfrn textCenter"></h1>
+                    </div>
+                    <p class="subjfrn textCenter subjdate"></p>
+                    <div class="countdown">
+                        <div class="time-con time-day">
+                            <div class="loader"></div>
+                            <h1>99</h1>
+                            <p>วัน</p>
+                        </div>
+                        <div class="time-con time-hour">
+                            <div class="loader"></div>
+                            <h1>23</h1>
+                            <p>ชั่วโมง</p>
+                        </div>
+                        <div class="time-con time-min">
+                            <div class="loader"></div>
+                            <h1>59</h1>
+                            <p>นาที</p>
+                        </div>
+                        <div class="time-con time-sec">
+                            <div class="loader"></div>
+                            <h1>59</h1>
+                            <p>วินาที</p>
+                        </div>
+                    </div>
                 </div>
                 
             </div>
@@ -338,6 +364,7 @@
     </script>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="exam.js"></script>
     <script src="ios.js"></script>
     <script src="index.js"></script>
 </body>
