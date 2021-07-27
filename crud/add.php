@@ -5,17 +5,22 @@
     if (isset($_REQUEST['btn_add'])) {
         $username_up = $_REQUEST['username'];
         $roles_up = $_REQUEST['roles'];
+        $pass_up = $_REQUEST['password'];
 
-        if (empty($username_up)) {
+        if (empty($username_up) OR empty($pass_up)) {
             $errorMsg = "Username cannot be blank or null";
         } else if (empty($roles_up)) {
             $errorMsg = "Roles cannot be blank or null";
         } else {
+            if (strlen($pass_up) !== 4) {
+                $errorMsg = "Password must contain only 4 numeric digits";
+            }
             try {
                 if (!isset($errorMsg)) {
-                    $update_stmt = $db->prepare("INSERT INTO `users` (`username`,`roles`) VALUES (:fname_up,:lname_up)");
+                    $update_stmt = $db->prepare("INSERT INTO `users` (`username`,`roles`,`password`) VALUES (:fname_up,:lname_up,:pass_up)");
                     $update_stmt->bindParam(':fname_up', $username_up);
                     $update_stmt->bindParam(':lname_up', $roles_up);
+                    $update_stmt->bindParam(':pass_up', $pass_up);
 
                     $login = $_SESSION["username"];
                     $date = date('Y-m-d H:i:s');
@@ -67,7 +72,7 @@
         ?>
         <div class="alert alert-danger">
             <strong>Error: <?php echo $errorMsg; ?></strong>
-        </div>
+        </div><br>
         <?php } ?>
 
 
@@ -87,6 +92,10 @@
                 <option value="Admin">Admin</option>
 
             </select><br>
+
+            <label for="username" style="font-size: 20px">Password (4 Digits)</label>
+            <input style="font-size: 15px; padding: 5px; margin-left: 10px; margin-top: 10px" type="number" autocomplete="off"
+            pattern="\d{4}" name="password" required><br>
 
             <input
                 style="font-size: 20px; color: white; background-color:green; border:none; margin-top: 10px; padding: 5px"

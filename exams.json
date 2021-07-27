@@ -1,13 +1,16 @@
 {
     "api": "API ติดตามตารางสอบ โรงเรียนอัสสัมชัญธนบุรี",
     "author": "Tinagrit Leelawat (TinagritProject)",
+    "author-website": "https://www.tinagrit.com",
     "source": "http://www.act.ac.th",
     "info": {
         "active": true,
+        "onsite": true,
         "name": "สอบกลางภาค 1/2564",
         "focus": "ม.4"
     },
-    "subj": [{
+    "subj": [
+        {
             "name": "thai",
             "friendlyname": "ภาษาไทย",
             "date": "วันอังคารที่ 30 มี.ค. 2564",
@@ -40,7 +43,8 @@
             "scope": ""
         },
         {
-            "group": [{
+            "group": [
+                {
                     "name": "machanic",
                     "friendlyname": "กลศาสตร์",
                     "subjid": "",
@@ -69,7 +73,8 @@
             "date": "วันอังคารที่ 30 มี.ค. 2564"
         },
         {
-            "group": [{
+            "group": [
+                {
                     "name": "prob",
                     "friendlyname": "ความน่าจะเป็น",
                     "subjid": "",
@@ -102,7 +107,8 @@
             "scope": ""
         },
         {
-            "group": [{
+            "group": [
+                {
                     "name": "stoichio",
                     "friendlyname": "ปริมาณสัมพันธ์",
                     "subjid": "",
@@ -137,7 +143,8 @@
             "date": "วันพฤหัสบดีที่ 1 เม.ย. 2564"
         },
         {
-            "group": [{
+            "group": [
+                {
                     "name": "function",
                     "friendlyname": "ความสัมพันธ์และฟังก์ชัน",
                     "subjid": "",
@@ -154,7 +161,8 @@
             "date": "วันจันทร์ที่ 5 เม.ย. 2564"
         },
         {
-            "group": [{
+            "group": [
+                {
                     "name": "evolution",
                     "friendlyname": "พันธุศาสตร์และวิวัฒนาการ",
                     "subjid": "",
@@ -183,6 +191,132 @@
             "start": "99999999999999999",
             "subjid": "",
             "scope": ""
+        }
+    ],
+    "rooms" : [
+        {
+            "room": "1",
+            "group" : [
+                {
+                    "class": "ม. 4/1",
+                    "range": "1-18"
+                },
+                {
+                    "class": "ม. 1/1",
+                    "range": "19-36"
+                }
+            ]
+        },
+        {
+            "room": "2",
+            "group" : [
+                {
+                    "class": "ม. 4/2",
+                    "range": "1-18"
+                },
+                {
+                    "class": "ม. 6/2",
+                    "range": "19-36"
+                },
+                {
+                    "class": "ม. 1/2",
+                    "range": "37-55"
+                }
+            ]
+        },
+        {
+            "room": "3",
+            "group" : [
+                {
+                    "class": "ม. 4/3",
+                    "range": "1-18"
+                },
+                {
+                    "class": "ม. 6/3",
+                    "range": "19-36"
+                },
+                {
+                    "class": "ม. 1/3",
+                    "range": "37-55"
+                }
+            ]
+        },
+        {
+            "room": "4",
+            "group" : [
+                {
+                    "class": "ม. 4/4",
+                    "range": "1-18"
+                },
+                {
+                    "class": "ม. 6/4",
+                    "range": "19-36"
+                },
+                {
+                    "class": "ม. 1/4",
+                    "range": "37-55"
+                }
+            ]
+        },
+        {
+            "room": "5",
+            "group" : [
+                {
+                    "class": "ม. 4/5",
+                    "range": "1-18"
+                },
+                {
+                    "class": "ม. 6/5",
+                    "range": "19-34"
+                },
+                {
+                    "class": "ม. 1/5",
+                    "range": "35-52"
+                }
+            ]
+        },
+        {
+            "room": "6",
+            "group" : [
+                {
+                    "class": "ม. 4/6",
+                    "range": "1-18"
+                },
+                {
+                    "class": "ม. 6/6",
+                    "range": "19-36"
+                },
+                {
+                    "class": "ม. 1/6",
+                    "range": "37-54"
+                }
+            ]
+        },
+        {
+            "room": "7",
+            "group" : [
+                {
+                    "class": "ม. 4/7",
+                    "range": "1-23"
+                },
+                {
+                    "class": "ม. 1/7",
+                    "range": "24-46"
+                }
+            ]
+        },
+        {
+            "room": "A",
+            "group" : [
+                {
+                    "class": "10A",
+                    "range": "1-17"
+                },
+                {
+                    "class": "7A",
+                    "range": "18-34"
+                }
+            ]
         }
     ]
 }

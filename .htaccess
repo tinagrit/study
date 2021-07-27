@@ -1,7 +1,7 @@
 Options -Indexes
 ErrorDocument 403 /403forbidden.html
+ErrorDocument 404 /404notfound.html
 RewriteEngine on
-RewriteRule ^403forbidden.html$ /index.php [R=301]
 
 Header set Access-Control-Allow-Origin "*"
 

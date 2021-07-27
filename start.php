@@ -1,4 +1,9 @@
-<?php  session_start(); include('server.php') ?>
+<?php  session_start(); include('server.php');
+if (isset($_REQUEST['redirect'])) {
+    $_SESSION['afterlogin'] = $_REQUEST['redirect'];
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tinagrit Study</title>
+    <title>เข้าสู่ระบบ - Tinagrit Study</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -39,7 +44,7 @@
             <h1 style="margin-bottom: 5px;">ยินดีต้อนรับสู่ Tinagrit Study</h1>
             <p style="margin-top: 5px;">เข้าสู่ระบบโดยกรอกชื่อผู้ใช้ Instagram ที่กล่องด้านล่าง</p>
             <?php if (isset($_SESSION['autherror'])) {
-                echo "<p>" . $_SESSION['autherror'] ."</p>";
+                echo "<p class='autherror'>" . $_SESSION['autherror'] ."</p>";
                 session_destroy();
             } ?>
 

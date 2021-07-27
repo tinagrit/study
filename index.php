@@ -12,7 +12,7 @@
         header('location: start.php');
     }
 
-    $restricted = array('tinagrit','gnnill_');
+    $restricted = array('tinagrit','gnnill_','root');
     $_SESSION['restricted'] = $restricted;
     header('Access-Control-Allow-Origin: *');
 
@@ -30,14 +30,16 @@
     <meta name="google" content="notranslate">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tinagrit Study (Development Mode)</title>
+    <title>หน้าหลัก - Tinagrit Study</title>
     <meta name="description" content="Tinagrit Study for Exams">
+    <meta name="theme-color" content="#0059ff">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="timeline.css">
     <link rel="stylesheet" href="index.css">
     <link rel="shortcut icon" href="logo/favicon.png">
+    <link rel="apple-touch-icon" href="logo/apple-touch-icon.png">
 </head>
 
 <body>
@@ -57,49 +59,53 @@
         <p>This display is unsupported, which could break the website's styling.</p>
     </div>
 
-    <div class="head">
-        <div class="header darkbluegradient">
-            <div class="contents" >
-                <h1 class="pagetitle"><strong>Study</strong><i class="fas fa-user-circle userprofile"></i></h1>
+    <header>
 
-                <hr>
-                <div class="headcontent count" data-transition='true'>
-                    <p class="textCenter welcome" style="margin: 0;">สวัสดี <?php echo $_SESSION['username'] ?>!</p>
-                    <div class="subjects">
-                        <h1 class="subjfrn textCenter"></h1>
+
+        <div class="head">
+            <div class="header darkbluegradient">
+                <div class="contents">
+                    <h1 class="pagetitle"><strong>Study</strong><i class="fas fa-user-circle userprofile"></i></h1>
+
+                    <hr>
+                    <div class="headcontent count" data-transition='true'>
+                        <p class="textCenter welcome" style="margin: 0;">สวัสดี <?php echo $_SESSION['username'] ?>!</p>
+                        <div class="subjects">
+                            <h1 class="subjfrn textCenter"></h1>
+                        </div>
+                        <p class="subjfrn textCenter subjdate"></p>
+                        <div class="countdown">
+                            <div class="time-con time-day">
+                                <div class="loader"></div>
+                                <h1>99</h1>
+                                <p>วัน</p>
+                            </div>
+                            <div class="time-con time-hour">
+                                <div class="loader"></div>
+                                <h1>23</h1>
+                                <p>ชั่วโมง</p>
+                            </div>
+                            <div class="time-con time-min">
+                                <div class="loader"></div>
+                                <h1>59</h1>
+                                <p>นาที</p>
+                            </div>
+                            <div class="time-con time-sec">
+                                <div class="loader"></div>
+                                <h1>59</h1>
+                                <p>วินาที</p>
+                            </div>
+                        </div>
                     </div>
-                    <p class="subjfrn textCenter subjdate"></p>
-                    <div class="countdown">
-                        <div class="time-con time-day">
-                            <div class="loader"></div>
-                            <h1>99</h1>
-                            <p>วัน</p>
-                        </div>
-                        <div class="time-con time-hour">
-                            <div class="loader"></div>
-                            <h1>23</h1>
-                            <p>ชั่วโมง</p>
-                        </div>
-                        <div class="time-con time-min">
-                            <div class="loader"></div>
-                            <h1>59</h1>
-                            <p>นาที</p>
-                        </div>
-                        <div class="time-con time-sec">
-                            <div class="loader"></div>
-                            <h1>59</h1>
-                            <p>วินาที</p>
-                        </div>
-                    </div>
+
                 </div>
-                
-            </div>
 
+            </div>
+            <div class="headerbottom darkbluegradient">
+                <div class='scrolldown' data-transition='true'></div>
+            </div>
         </div>
-        <div class="headerbottom darkbluegradient">
-            <div class='scrolldown' data-transition='true'></div>
-        </div>
-    </div>
+    </header>
 
 
 
@@ -126,11 +132,11 @@
         </div>
         <?php endif ?>
 
-        <div class="padd" data-transition='true'>
-            <h1 class="textCenter" >ตารางสอบ</h1>
+        <div class="padd onExamActive" data-transition='true'>
+            <h1 class="textCenter">ตารางสอบ</h1>
         </div>
 
-        <div class="tableContainer" data-transition='true'>
+        <div class="tableContainer onExamActive" data-transition='true'>
             <table>
                 <thead>
                     <tr>
@@ -162,9 +168,9 @@
             </table>
         </div>
 
-        <link rel="stylesheet" href="timeline.css">
+
     </div>
-    <div class="table-timeline-wrap " data-transition='true'>
+    <div class="table-timeline-wrap onExamActive scroller" data-transition='true'>
         <table class="table-timeline" cellspacing='0'>
             <colgroup>
                 <col width="80px">
@@ -315,9 +321,363 @@
         </table>
     </div>
 
-    <div class="contents" data-transition='true'>
-        <p class="textCenter padd switchTable" style="margin-top: 15px;" >ถ้าการแสดงผลดูแปลกๆ คลิกที่นี่ เพื่อดูแบบตาราง
+    <div class="contents textCenter" data-transition='true'>
+        <p class="textCenter padd switchTable onExamActive" style="margin-top: 15px; margin-bottom: 10px;">ถ้าการแสดงผลดูแปลกๆ คลิกที่นี่
+            เพื่อดูแบบตาราง
         </p>
+
+
+        <div class="testRoom onExamActive">
+            <h1 class="textCenter" style="margin: 30px 0 0 0;">ห้องสอบ</h1>
+            <select id="roomSelect">
+                <option value="" selected disabled>เลือกห้อง</option>
+                <option value="1">ห้อง 1</option>
+                <option value="2">ห้อง 2</option>
+                <option value="3">ห้อง 3</option>
+                <option value="4">ห้อง 4</option>
+                <option value="5">ห้อง 5</option>
+                <option value="6">ห้อง 6</option>
+                <option value="7">ห้อง 7</option>
+                <option value="8">ห้อง A</option>
+            </select>
+            <select id="numberSelect">
+                <option value="" id='optionRoomOne' selected disabled>เลือกเลขที่</option>
+            </select>
+            <div class="box greengradient">
+                <h1 class="textCenter" style="margin: 0;">สอบห้อง </h1>
+            </div>
+        </div>
+        
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <div class="older">
+
+        <h1 class="textCenter" style="margin: 0 0 0 0;">ม.3 เทอม 2</h1>
+
+
+        <div class="scroller fileList" data-transition='true'>
+            <div class="fileListChild">
+                <div class="filecard transparentbox">
+                    <h1>ภาษาไทย</h1>
+                    <p>สรุป - หลิงหลิง</p>
+                    <ul>
+                        <li>ความสมเหตุสมผล การลำดับความ และความเป็นไปได้ของเรื่อง</li>
+                        <li>แสดงความคิดเห็นโต้แย้ง</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox">
+                    <h1>คณิตศาสตร์</h1>
+                    <p>สรุป - TinagritProject</p>
+                    <ul>
+                        <li>วงกลม</li>
+                        <li>ความน่าจะเป็น</li>
+                        <li>สถิติ</li>
+                        <ul>
+                            <li>แผนภาพกล่อง</li>
+                        </ul>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox">
+                    <h1>สังคมศึกษา</h1>
+                    <p>สรุป - หลิงหลิง</p>
+                    <ul>
+                        <li>กลไลราคาในระบบเศรษฐกิจ</li>
+                        <li>บทบาทหน้าที่ของรัฐบาลในระบบเศรษฐกิจ</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox">
+                    <h1>วิทยาศาสตร์</h1>
+                    <p>สรุป - TinagritProject</p>
+                    <ul>
+                        <li>แสงและการมองเห็น</li>
+                        <ul>
+                            <li>การสะท้อนของแสง</li>
+                            <li>การหักเหของแสง</li>
+                        </ul>
+                        <li>ปฏิสัมพันธ์ในระบบสุริยะ</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox" style="width: 230px">
+                    <h1>วิทยาศาสตร์เพิ่มเติม</h1>
+                    <p>สรุป - TinagritProject</p>
+                    <ul>
+                        <li>พลังงานนิวเคลียร์</li>
+                        <li>ดาราศาสตร์และอวกาศ</li>
+                        <ul>
+                            <li>ระบบสุริยะ</li>
+                        </ul>
+                        <li>แสงและการมองเห็น</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contents textCenter">
+            <h1 style="margin: 30px 0 0 0;">ม.3 เทอม 1</h1>
+        </div>
+        <div class="scroller fileList">
+            <div class="fileListChild">
+                <div class="filecard transparentbox">
+                    <h1>คณิตศาสตร์</h1>
+                    <p>สรุป - TinagritProject</p>
+                    <ul>
+                        <li>การแยกตัวประกอบ</li>
+                        <li>สมการกำลังสอง</li>
+                        <li>พาราโบล่า</li>
+                        <li>อสมการ</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox">
+                    <h1>ภาษาอังกฤษ</h1>
+                    <p>สรุป - TinagritProject</p>
+                    <ul>
+                        <li>กาลเวลา</li>
+                        <li>ข้อเท็จจริง</li>
+                        <li>ความคิดเห็น</li>
+                        <li>กริยาทั่วไป</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox">
+                    <h1>วิทยาศาสตร์</h1>
+                    <p>สรุป - TinagritProject</p>
+                    <ul>
+                        <li>พอลิเมอร์</li>
+                        <li>เซรามิค</li>
+                        <li>วัสดุผสม</li>
+                        <li>ปฏิกิริยาเคมี</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox" style="width: 250px">
+                    <h1>วิทยาศาสตร์ (คำถาม)</h1>
+                    <p>คำถาม - TinagritProject</p>
+                    <ul>
+                        <li>พอลิเมอร์</li>
+                        <li>เซรามิค</li>
+                        <li>วัสดุผสม</li>
+                        <li>ปฏิกิริยาเคมี</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox">
+                    <h1>คณิตศาสตร์</h1>
+                    <p>สรุป - TinagritProject</p>
+                    <ul>
+                        <li>อสมการ</li>
+                        <li>สมการเชิงเส้นสองตัวแปร</li>
+                        <li>พื้นที่ผิว</li>
+                        <li>ปริมาตร</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox" style="width: 250px">
+                    <h1>คณิตศาสตร์ (คำถาม)</h1>
+                    <p>คำถาม - TinagritProject</p>
+                    <ul>
+                        <li>อสมการ</li>
+                        <li>สมการเชิงเส้นสองตัวแปร</li>
+                        <li>พื้นที่ผิว</li>
+                        <li>ปริมาตร</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox">
+                    <h1>ภาษาอังกฤษ</h1>
+                    <p>สรุป - TinagritProject</p>
+                    <ul>
+                        <li>การอ่านคำสนทนา</li>
+                        <li>แกรมม่า</li>
+                        <li>กาลเวลา</li>
+                        <li>การเขียน</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contents textCenter">
+            <h1 style="margin: 30px 0 0 0;">ม.2 เทอม 2</h1>
+        </div>
+        <div class="scroller fileList">
+            <div class="fileListChild">
+                <div class="filecard transparentbox">
+                    <h1>สังคมศึกษา</h1>
+                    <p>สรุป - หลิงหลิง</p>
+                    <ul>
+                        <li>เครื่องมือทางภูมิศาสตร์</li>
+                        <li>ปัจจัยทางกายภาพ</li>
+                        <li>ปัจจัยทางสังคม</li>
+                        <li>ทวีป</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox">
+                    <h1>วิทยาศาสตร์</h1>
+                    <p>สรุป - TinagritProject</p>
+                    <ul>
+                        <li>เชื้อเพลิงซากดึกดำบรรพ์</li>
+                        <li>การผุพัง การกร่อน การสะสมตัว</li>
+                        <li>สมบัติของดินและนํ้า</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox">
+                    <h1>ภาษาไทย</h1>
+                    <p>สรุป - TinagritProject</p>
+                    <ul>
+                        <li>คุณค่าจากวรรณคดี</li>
+                        <li>ข้อคิดจากวรรณคดี</li>
+                        <li>ประเมินคุณค่าจากการอ่าน</li>
+                        <li>อธิบายคุณค่าของวรรณคดี</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox" style="width: 250px">
+                    <h1>วิทยาศาสตร์เพิ่มเติม</h1>
+                    <p>สรุป - TinagritProject</p>
+                    <ul>
+                        <li>ประเภทโครงงาน</li>
+                        <li>สมมติฐาน</li>
+                        <li>ตัวแปร</li>
+                        <li>แผงโครงงาน</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox" style="width: 250px">
+                    <h1>คณิตศาสตร์เพิ่มเติม</h1>
+                    <p>สรุป - TinagritProject</p>
+                    <ul>
+                        <li>การประยุกต์พื้นที่ผิวและปริมาตร</li>
+                        <li>เส้นขนาน</li>
+                        <li>สถิติ</li>
+                        <li>ความน่าจะเป็น</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox">
+                    <h1>การงานอาชีพ</h1>
+                    <p>สรุป - หลิงหลิง</p>
+                    <ul>
+                        <li>งานธุรกิจ</li>
+                        <li>การติดต่อสื่อสาร</li>
+                        <li>การจัดการผลผลิต</li>
+                        <li>ทักษะการประกอบอาชีพ</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox">
+                    <h1>ประวัติศาสตร์</h1>
+                    <p>สรุป - หลิงหลิง</p>
+                    <ul>
+                        <li>การสถาปนากรุงธนบุรี</li>
+                        <li>การสร้างเสถียรภาพ</li>
+                        <li>ภูมิปัญญาไทย</li>
+                        <li>บุคคลสำคัญ</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox">
+                    <h1>คณิตศาสตร์</h1>
+                    <p>สรุป - TinagritProject</p>
+                    <ul>
+                        <li>พื้นที่ผิวและปริมาตร</li>
+                        <li>เส้นขนาน</li>
+                        <li>สถิติ</li>
+                        <li>ความน่าจะเป็น</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox">
+                    <h1>สุขศึกษา</h1>
+                    <p>สรุป - TinagritProject</p>
+                    <ul>
+                        <li>การสร้างเสริมสุขภาพ</li>
+                        <li>เทคโนโลยี</li>
+                        <li>สุขภาพกาย จิต</li>
+                        <li>สมรรถภาพร่างกาย</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox">
+                    <h1>ศิลปะพื้นฐาน</h1>
+                    <p>สรุป - TinagritProject</p>
+                    <ul>
+                        <li>งานทัศนศิลป์โฆษณา</li>
+                        <li>วัฒนธรรมไทย</li>
+                        <li>การวิจารณ์</li>
+                        <li>การวาดภาพบุคลิก</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+                <div class="filecard transparentbox">
+                    <h1>ภาษาอังกฤษ</h1>
+                    <p>สรุป - TinagritProject</p>
+                    <ul>
+                        <li>การสนทนา</li>
+                        <li>การอ่าน</li>
+                        <li>การเขียน</li>
+                        <li>แกรมม่า</li>
+                    </ul>
+                    <p class="textCenter">...</p>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+        <p class="read-more"><a class="button button-rm">ดูเพิ่มเติม</a></p>
+
+        <div class="read-less-btn">
+            <p class="read-less"><a class="button button-rl">ย่อลง</a></p>
+        </div>
+        <div style="height: 20px;"></div>
+    </div>
+
+    <div class="contents">
+        <div class="btnb" style="position:relative" data-transition='true'>
+            <div style="height: 40px;"><i class="fas fa-tools fa-4x background-tools"></i></div>
+            <div class="box greengradient">
+                <h1><i class="fas fa-arrow-right"></i> เครื่องมือและแอพ</h1>
+
+            </div>
+        </div>
+        <div class="btnb" style="position:relative" data-transition='true'>
+            <div style="height: 0;"><i class="fas fa-user fa-4x background-tools background-account"></i></div>
+            <div class="box yellowgradient">
+                <h1><i class="fas fa-arrow-right"></i> จัดการบัญชี</h1>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="credits">
+        <p style="margin-bottom: 15px;">© TinagritProject (2021)</p>
+        <p><a href="policy.html"><i class="fas fa-arrow-right" style="margin-right: 5px;"></i>นโยบายความเป็นส่วนตัวและข้อกำหนดการใช้บริการ</a></p>
+        <p><a href="exams.json"><i class="fas fa-arrow-right" style="margin-right: 5px;"></i> API ตารางสอบ</a></p>
     </div>
 
 

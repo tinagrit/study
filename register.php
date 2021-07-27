@@ -13,10 +13,39 @@
 
         if (empty($username)) {
             array_push($errors, "Username cannot be empty or null");
-            $_SESSION['autherror'] = "Username cannot be empty or null";
+            $_SESSION['autherror'] = "ต้องมีชื่อผู้ใช้";
             header('location: start.php');
             exit();
         }
+
+        if ($username == 'root') {
+            array_push($errors, "Root is not accessible");
+            $_SESSION['autherror'] = "ผู้ใช้นี้เข้าถึงไม่ได้";
+            header('location: start.php');
+            exit();
+        }
+
+        if (strpos($username, "SELECT ") !== FALSE OR strpos($username, "DELETE ") !== FALSE OR strpos($username, "INSERT ") !== FALSE OR strpos($username, "UPDATE ") !== FALSE OR strpos($username, " FROM ")) {
+            array_push($errors, "This username is too risky to SQL Injection");
+            $_SESSION['autherror'] = "ชื่อผู้ใช้มีคำไม่อนุญาต (SQL Commands)";
+            header('location: start.php');
+            exit();
+        }
+
+        if (strpos($username, "admin") !== FALSE OR strpos($username, "tinagritstudy") !== FALSE) {
+            array_push($errors, "This username is not allowed");
+            $_SESSION['autherror'] = "ชื่อผู้ใช้มีคำไม่อนุญาต";
+            header('location: start.php');
+            exit();
+        }
+
+        if (strpos($username, "<") !== FALSE OR strpos($username, ">") !== FALSE OR strpos($username, "script") !== FALSE) {
+            array_push($errors, "This username is too risky to XSS attack");
+            $_SESSION['autherror'] = "ชื่อผู้ใช้มีคำไม่อนุญาต (HTML Tag)";
+            header('location: start.php');
+            exit();
+        }
+
 
         
         if (isset($_POST['g-recaptcha-response'])) {
@@ -96,7 +125,11 @@
     $action -> bindParam(':actions', $actions);
     $action -> execute();
 
-    header('location: index.php');
+        if (isset($_SESSION['afterlogin'])) {
+            header('location: ' . $_SESSION['afterlogin']);
+        } else {
+            header('location: index.php');
+        }
     }
 
 
@@ -122,7 +155,11 @@
 
         if (mysqli_num_rows($result) == 1) {
             $_SESSION['username'] = $oldusername;
-            header('location: index.php');
+            if (isset($_SESSION['afterlogin'])) {
+                header('location: ' . $_SESSION['afterlogin']);
+            } else {
+                header('location: index.php');
+            }
             exit();
         } else {
             $_SESSION['autherror'] = 'รหัสผ่านไม่ถูกต้อง';

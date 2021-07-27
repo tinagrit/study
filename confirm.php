@@ -9,6 +9,43 @@ if(isset($_SESSION['existinguser'])) {
     $username = $_SESSION['existinguser'];
 }
 
+function get_web_page( $url )
+    {
+        $user_agent='Mozilla/5.0 (Windows NT 6.1; rv:8.0) Gecko/20100101 Firefox/8.0';
+
+        $options = array(
+
+            CURLOPT_CUSTOMREQUEST  =>"GET",        //set request type post or get
+            CURLOPT_POST           =>false,        //set to GET
+            CURLOPT_USERAGENT      => $user_agent, //set user agent
+            CURLOPT_COOKIEFILE     =>"cookie.txt", //set cookie file
+            CURLOPT_COOKIEJAR      =>"cookie.txt", //set cookie jar
+            CURLOPT_RETURNTRANSFER => true,     // return web page
+            CURLOPT_HEADER         => false,    // don't return headers
+            CURLOPT_FOLLOWLOCATION => true,     // follow redirects
+            CURLOPT_ENCODING       => "",       // handle all encodings
+            CURLOPT_AUTOREFERER    => true,     // set referer on redirect
+            CURLOPT_CONNECTTIMEOUT => 120,      // timeout on connect
+            CURLOPT_TIMEOUT        => 120,      // timeout on response
+            CURLOPT_MAXREDIRS      => 10,       // stop after 10 redirects
+        );
+
+        $ch      = curl_init( $url );
+        curl_setopt_array( $ch, $options );
+        $content = curl_exec( $ch );
+        $err     = curl_errno( $ch );
+        $errmsg  = curl_error( $ch );
+        $header  = curl_getinfo( $ch );
+        curl_close( $ch );
+
+        $header['errno']   = $err;
+        $header['errmsg']  = $errmsg;
+        $header['content'] = $content;
+        return $header;
+    }
+
+
+
 
 ?>
 
@@ -33,7 +70,7 @@ if(isset($_SESSION['existinguser'])) {
             -webkit-appearance: none;
             margin: 0;
         }
-        @media screen and (max-height: 340px) {
+        @media screen and (max-height: 440px) {
             .onMiddle {
                 display: block;
             }
@@ -80,8 +117,20 @@ if(isset($_SESSION['existinguser'])) {
 
                 <input name="username" style="display:none" value="<?php echo $username ?>">
 
-                <p style='text-align: center'>ด้วยการใช้ Tinagrit Study แสดงว่าคุณได้อ่านและทำความเข้าใจข้อกำหนดการให้บริการและนโยบายความเป็นส่วนตัวแล้ว</p>
+                <?php
+                
+                $igurl = "https://instausername.com/availability?q=" . $username;
+                $xml = get_web_page($igurl);
+                $page = $xml['content'];
 
+                if (strpos($page, 'is free') !== false) {
+                    echo '<br><strong>แน่ใจหรอ? ดูเหมือนชื่อที่คุณใส่มาจะไม่มีอยู่จริงใน Instagram ซึ่งอาจทำให้คุณถูกปฏิเสธคำขอไฟล์ได้</strong>';
+                }
+                
+                ?>
+
+                <p style='text-align: center'>ด้วยการใช้ Tinagrit Study แสดงว่าคุณได้อ่านและทำความเข้าใจข้อกำหนดการให้บริการและนโยบายความเป็นส่วนตัวแล้ว</p>
+                
             <div class="buttonarrow">
                 <a href="policy.html"><i class="fas fa-arrow-right" style="color: black; font-size: 15px; margin-bottom: 30px" ></i>
                     <p style="color: black; font-size: 15px;">ข้อกำหนดการใช้บริการ</p>

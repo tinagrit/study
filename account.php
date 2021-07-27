@@ -35,7 +35,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tinagrit Study (Development Mode)</title>
+    <title>บัญชี - Tinagrit Study</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -74,22 +74,6 @@
         <div class="box transparentbox onprint">
             <p>เว็ปนี้ไม่ได้ออกแบบมาเพื่อการพิมพ์ อาจเกิดข้อผิดพลาดในการแสดงผลข้อมูล</p>
         </div>
-        <div class="box transparentbox">
-            <h1>Dev Info</h1>
-            <p><strong>***HIDE THIS ON PRODUCTION***</strong></p><br>
-            <a href="index.php?logout=true"><strong>DESTROY SESSION</strong></a><br><br>
-            <p><strong>USERNAME:</strong> <?php echo $_SESSION["username"] ?></p>
-            <p><strong>USERROLE:</strong> <?php echo $_SESSION["role"] ?></p>
-            <p><strong>SESSION ACTIVE:</strong> TRUE</p><br>
-            <p><strong>CURRENT DB:</strong> BETA</p>
-            <p><strong>PROTOCOL:</strong>
-                <?php if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') { echo 'HTTPS'; } else {echo 'HTTP';} ?>
-            </p>
-            <p><strong>RESPONSE CODE:</strong> <?php  echo '200 OK'; ?></p><br>
-            <a href="crud"><strong>REDIRECT TO CRUD</strong></a>
-        </div> 
-
-
 
         <i class="fas fa-user-circle fa-4x profilepic"></i>
         <div class="username-profile">

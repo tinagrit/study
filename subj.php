@@ -5,7 +5,9 @@
     
 
     if (!isset($_SESSION["username"])) {
-        header('location: start.php');
+        $noaccount = 1;
+    } else {
+        $noaccount = 0;
     }
 
     if (isset($_GET["logout"])) {
@@ -23,7 +25,9 @@
             $subjrow = $subject_stmt->fetch(PDO::FETCH_ASSOC);
         }
     } else {
-        header('location: index.php');
+        http_response_code(404);
+        header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found", true, 404);
+        die();
     }
 
     
@@ -94,7 +98,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tinagrit Study (Development Mode)</title>
+    <title><?php echo $subjrow['friendlyname'] ?> - Tinagrit Study</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -152,7 +156,9 @@
     <div class="tabs">
         <hr style="margin: 0; height: 1px; padding: 0">
         <div class="contents">
+        <?php if ($noaccount == 0) { ?>
         <div class="download">
+            <?php if ($subjrow['isFree'] == '0') { ?>
                 <?php  if ($row1["$frn"] == 0) : ?>
                 <div class="download-button download-button-blue">
                     <h2>ส่งคำขอ</h2>
@@ -170,7 +176,21 @@
                     <h2>ถูกปฏิเสธ</h2>
                 </div>
                 <?php endif ?>
+            <?php } else { ?>
+                <div class="download-button download-button-green">
+                    <h2>ดาวน์โหลด</h2>
+                </div>
+            <?php } ?>
+        </div>
+        <?php } else { ?>
+            <div class="download">
+                <p class="noAccountDownload"><?php echo $subjrow['friendlyname'] ?> อยู่บน Tinagrit Study</p>
+                <div class="download-button download-button-dblue">
+                    <h2>เข้าสู่ระบบ</h2>
+                </div>
+                <p class="textCenter">เข้าสู่ระบบเพื่อขอไฟล์ ดาวน์โหลด และเข้าถึงบริการต่างๆ</p>
             </div>
+        <?php } ?>
             <ul class='tabs-nav'>
                 <li class="tabs-li">
                     <div><i class="fas fa-home"></i><br><span class='navdesc'>Home</span></div>

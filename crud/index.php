@@ -83,8 +83,14 @@
 
                 <?php if ($row['username'] == 'tinagrit') :?>
                     <td><?php $originalId = $row['id']; echo 'MULLL'; ?></td>
+
                 <?php elseif ($row['username'] == 'gnnill_') : ?>
                     <td><?php $originalId = $row['id']; echo 'LLLMU'; ?></td>
+
+                <?php elseif ($row['username'] == 'root') : ?>
+                    <td><?php $originalId = $row['id']; echo 'R'; ?></td>
+
+
                 <?php else :?>
                     <td><?php $originalId = $row['id']; echo strtoupper(substr(md5($originalId), -5)); ?></td>
                 <?php endif ?>

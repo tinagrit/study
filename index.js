@@ -1,23 +1,23 @@
-console.log("%cWARNING!\n","color:orange;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold");console.log("%cPLEASE READ, THIS IS IMPORTANT","font-size: 2rem; color: red;-webkit-text-stroke: 1px black; font-weight: bold;");console.log("%cThis is called 'JavaScript Console', which you can execute codes and make changes to the website you see.","font-size: 1rem");console.log("%cSo the dangerous thing is that hackers may ask you to paste some codes here, and it may do something you don't want to, like deleting your account, or send them your personal information.","font-size: 1rem");console.log("%cThat means if you're NOT developers, and you got some codes to paste, JUST STOP, unless it IS trustworthy","font-size: 1rem");
+console.log("%c⚠WARNING!\n","color:orange;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold;text-align:center;");console.log("%cIF YOU DON'T KNOW WHAT EACH LINES OF CODES YOU ARE TYPING OR PASTING DOES, JUST STOP, YOU'LL PROBABLY GET HACKED IF YOU CONTINUE","font-size: 2rem; color: red;-webkit-text-stroke: 1px black; font-weight: bold;")
 
 function comma(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-const observer = new IntersectionObserver(entries => {
-    // Loop over the entries
-    entries.forEach(entry => {
-      // If the element is visible
-      if (entry.isIntersecting) {
-        // Add the animation class
-        entry.target.classList.add('zoomin-trigger');
-      }
-    });
-  });
+// const observer = new IntersectionObserver(entries => {
+//     // Loop over the entries
+//     entries.forEach(entry => {
+//       // If the element is visible
+//       if (entry.isIntersecting) {
+//         // Add the animation class
+//         entry.target.classList.add('zoomin-trigger');
+//       }
+//     });
+//   });
   
-  document.querySelectorAll("div[data-transition='true']").forEach(item => {
-      observer.observe(item);
-  })
+//   document.querySelectorAll("div[data-transition='true']").forEach(item => {
+//       observer.observe(item);
+//   })
 
 // if (document.querySelector('.outbreak')) {
 //     fetch('https://covid19.th-stat.com/json/covid19v2/getTodayCases.json')
@@ -69,9 +69,11 @@ if (document.querySelector('.download-button-red')) {
             
         })
     })
-    
-    document.querySelector('.sendAgain').addEventListener('click', function () {
-        window.location.href = window.location.href + "&requests=1";
+}
+
+if (document.querySelector('.download-button-dblue')) {
+    document.querySelector('.download-button-dblue').addEventListener('click', function () {
+        window.location.href = "start.php?redirect=" + window.location.href;
     })
 }
 
@@ -216,5 +218,17 @@ if (document.querySelector('.switchTable')) {
             document.querySelector('.switchTable').innerHTML = 'ถ้าการแสดงผลดูแปลกๆ คลิกที่นี่ เพื่อดูแบบตาราง';
             tableState = 0;
         }
+    })
+}
+
+if (document.querySelector('.older .button')) {
+    document.querySelector('.older .button-rm').addEventListener('click', () => {
+        document.querySelector('.read-more').style.opacity = '0';
+        document.querySelector('.older').classList.add('olderReadMore')
+    })
+
+    document.querySelector('.older .button-rl').addEventListener('click', () => {
+        document.querySelector('.read-more').style.opacity = '1';
+        document.querySelector('.older').classList.remove('olderReadMore')
     })
 }

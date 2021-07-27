@@ -3,6 +3,7 @@ let objExamAPI = null;
 let subjcount = null;
 let closestCount = null;
 let timer = null;
+let classroom = null;
 
 // add zero to two-digit values
 function addzero(n) {
@@ -18,8 +19,7 @@ async function loadExamAPI() {
         objExamAPI = await (await fetch(url)).json();
     } catch(e) {
         console.log('Cannot load "exam.json" API, ' + e);
-        document.querySelector('.welcome').style.fontSize = "30px";
-        document.querySelector('.welcome').style.fontWeight = "bold";
+        noLoad();
     }
     
     // if active
@@ -29,14 +29,32 @@ async function loadExamAPI() {
         //get data and start timer
         FetchExam();
     } else {
-        document.querySelector('.welcome').style.fontSize = "30px";
-        document.querySelector('.welcome').style.fontWeight = "bold";
+        noLoad();
     }
 }
 
+function noLoad() {
+    document.querySelector('.welcome').style.fontSize = "30px";
+    document.querySelector('.welcome').style.fontWeight = "bold";
+}
 
 // search json
 function FetchExam() {
+    let onExamActiveList = document.querySelectorAll('.onExamActive');
+    let oEALl = onExamActiveList.length;
+    for (i=0;i<oEALl;i++) {
+        onExamActiveList[i].style.display = "block";
+    }
+    document.querySelector('.tableContainer').style.display = 'none';
+
+    if (objExamAPI.info.onsite != false) {
+        //room select
+        roomSelect();
+    } else {
+        document.querySelector('.testRoom').style.display = "none";
+    }
+
+
     let times = [];
     let nowaday = Date.now();
     
@@ -155,6 +173,61 @@ function runCount() {
     if (currentGap <= 0) {
         clearInterval(timer);
         FetchExam();
+    }
+}
+
+let roomSelectOBJ = document.querySelector('#roomSelect')
+let numberSelector = document.querySelector('.testRoom #numberSelect')
+
+
+function roomSelect() {
+
+    roomSelectOBJ.addEventListener('change', () => {
+        
+
+        if (roomSelectOBJ.value != '' && roomSelectOBJ.value != undefined) {
+            let room = Number(roomSelectOBJ.value);
+            classroom = objExamAPI.rooms[room-1].group;
+            
+            let classroomLength = Object.keys(classroom).length;
+            
+
+            while(numberSelector.lastChild.id != 'optionRoomOne') {
+                numberSelector.removeChild(numberSelector.lastChild)
+            }
+
+            for (i = 0; i < classroomLength; i++) {
+                let selectobj = document.createElement('option');
+                selectobj.innerHTML = classroom[i].range;
+                selectobj.value = i;
+                numberSelector.appendChild(selectobj)
+            }
+
+            numberSelector.style.display = 'inline-block';
+            numberSelectorChanged();
+
+        } else {
+            numberSelector.style.display = 'none'            
+            document.querySelector('.testRoom .box').style.display = 'none'
+            return
+
+        }
+    })
+
+    numberSelector.addEventListener('change', numberSelectorChanged)
+
+
+
+}
+
+function numberSelectorChanged() {
+    if (numberSelector.value != '' && numberSelector.value != undefined) {
+        let chosenumber = Number(numberSelector.value);
+        document.querySelector('.testRoom .box').style.display = 'block';
+        document.querySelector('.testRoom .box h1').innerHTML = 'สอบห้อง ' + classroom[chosenumber].class;
+    } else {
+        document.querySelector('.testRoom .box').style.display = 'none'
+        return        
     }
 }
 
